@@ -1,0 +1,99 @@
+{% extends 'transform/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %} Encode Electronic Files {% endblock %}
+{% block header1 %} Encode Electronic Files to DNA Sequences {% endblock %}
+
+{% block content1 %} 
+<div>
+	<p>Choose a file (almost any kind), enter a secret token for encryption purpose, and then click Encode! The encoded DNA sequences will be ready for download in a blink or a couple of minutes, depending on your file size. You can encode by method A or B which method A encode the whole file at one time and method B split the file split the file into small framents and then encode them. Method B could apply to edit and is much for the future.</p>
+	<p>NOTES: Both the file name and the token should not be more than 256 characters. The uppe file size limit is 50 MiB and this limit is imposed due to the workload reason.  </p>	
+
+   </div>
+   <br />
+   <form class="form-horizontal" enctype="multipart/form-data" method="post" action="{% url "encode" %}">
+   	{% csrf_token %}
+   	{% for hidden in encode_form.hidden_fields %}
+   		{{ hiden }}
+	{% endfor %}
+	<div>
+		<label for="{{encode_form.encode_file.id_for_label}}" class="control-label">Method:</label>
+		<div class="controls">
+			<input type="radio" name="method" value="A" checked="checked"> Method A &nbsp&nbsp
+			<input type="radio" name="method" value="B" > Method B
+		</div>
+	</div>
+	<br>
+	<div class="form-group">
+		{{encode_form.encode_file.errors}}
+		<label for="{{encode_form.encode_file.id_for_label}}" class="control-label">Select a File:</label>
+		<div class="controls">
+		   <input type="file" class="input-xlarge" name="{{ encode_form.encode_file.html_name }}" placeholder="Choose a file to encode." required>
+	          <div>{{encode_form.encode_file.help_text}}</div>
+       </div>
+	</div>
+	<br />
+	<div class="form-group">
+	   {{encode_form.encode_token.errors}}
+	   <label for="{{encode_form.encode_token.id_for_label}}" class="control-label">Encrypte code:</label>
+	   <div class="controls" >
+		   <input type="password" class="input-xlarge" name="{{ encode_form.encode_token.html_name}}" placeholder="{{encode_form.encode_token.help_text}}" required autofocus>
+           </div>
+	</div>
+	<br />
+
+	<br />
+	<div class="form-group">
+	   <div class="controls">
+      	      <button class="btn btn-success" type="submit" name="encode" value="encode">Encode!</button>
+     	   </div>
+	</div>
+    </form>
+{% endblock %}
+
+
+{% block header2 %} 
+  {% if results %}
+     Encoded Sequences
+  {% else %}
+    {% if errors %}
+       Ooops... 
+    {% endif %}
+  {% endif %}
+{% endblock %}
+
+{% block content2 %}
+  {% if results %}
+    <h3>Downloadable Files</h3>
+    <div id="downloads">
+	    <dl class="dl-horizontal">
+		    <dt><a href="{{results.file_text}}">Text</a><dt>
+		    <dd>Nucleotide sequences in simple text format<dd>
+		    <dt><a href="{{results.file_fasta}}">FASTA</a><dt>
+		    <dd>Nucleotide sequences in <a href="https://en.wikipedia.org/wiki/FASTA_format">FASTA</a> format<dd>
+		    <dt><a href="{{results.file_sbol}}">SBOL</a><dt>
+		    <dd>Nucleotide sequences in the Synthetic Biology Open Language (<a href="http://sbolstandard.org">SBOL</a>) format<dd>
+	    </dl>
+    </div>
+
+    <h3>BioBrick Assembly Compatibility</h3>
+    <div id="blast">
+	    <dl class="dl-horizontal">
+		    <dt><a href="{{results.file_blast}}">Assembly Report</a><dt>
+		    <dd>Biobrick <a href="http://parts.igem.org/Help:Assembly">assembly standards</a>  </dd>
+		    <!-- <dd>Blast results against <a href="#">BioBricks</a> <a href="#">risky parts</a>. The report file is compressed using the <a href="http://www.gnu.org/software/gzip/">gzip</a> compressor. Please decompress the file using your favorite program. The blast is performed using the <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">NCBI BLAST+</a> executable (blastn 2.5.0). <dd> -->
+	    </dl>
+    </div>
+  {% else %}
+    {% if errors %}
+    <h3>Something Goes Wrong!</h3>
+    <div id="errors">
+       {{errors}}
+    </div>
+    {% endif %}
+  {% endif %}
+{% endblock %}
+<br />
+<br />
+

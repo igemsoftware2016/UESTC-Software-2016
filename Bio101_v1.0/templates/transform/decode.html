@@ -1,0 +1,90 @@
+{% extends 'transform/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %} Decode DNA Sequences {% endblock %}
+{% block header1 %} Decode a DNA Sequence File to Recover the Stored Information {% endblock %}
+
+{% block content1 %} 
+   <div>
+	   <p>Upload a DNA sequence file in Text, FASTA or SBOL format and your token to extract the stored information from the synthesized DNA.</p>
+	   <p>If you don't have a DNA sequences file, you may use the <a href="{% url "decode" %}">Encode</a> page to generate one.</p>
+	   <p>NOTE 1: The file name and the token should be no more than 256 characters.</p>
+	   <p>NOTE 2: The file size should be less than 50 MiB due to the workload reason.</p>
+	   <p>NOTE 3: The text format file should contain A, T, C and G only and 215 bases per line; the FASTA and SBOL format file should contain all sequences in one file.</p>
+   </div>
+   <br />
+   <form class="form-horizontal" enctype="multipart/form-data" method="post" action="{% url "decode" %}">
+   	{% csrf_token %}
+   	{% for hidden in decode_form.hidden_fields %}
+   		{{ hiden }}
+	{% endfor %}
+  <div>
+    <label for="{{encode_form.encode_file.id_for_label}}" class="control-label">Method:</label>
+    <div class="controls">
+      <input type="radio" name="method" value="A" checked="checked"> Method A &nbsp&nbsp
+      <input type="radio" name="method" value="B" > Method B
+    </div>
+  </div>
+  <br>
+  
+	<div class="form-group">
+    {{decode_form.decode_file.errors}}
+    <label for="{{decode_form.decode_file.id_for_label}}" class="control-label">Select a File:</label>
+    <div class="controls">
+      <input type="file" class="input-xlarge" name="{{ decode_form.decode_file.html_name }}" placeholder="Upload your DNA sequence to decode." required>
+      <div>{{decode_form.decode_file.help_text}}</div>
+    </div>
+	</div>
+	<br>
+	<div class="form-group">
+	   {{decode_form.decode_token.errors}}
+	   <label for="{{decode_form.decode_token.id_for_label}}" class="control-label">Dencrypte code:</label>
+	   <div class="controls" >
+		   <input type="password" class="input-xlarge" name="{{ decode_form.decode_token.html_name}}" placeholder="{{decode_form.decode_token.help_text}}" required autofocus>
+           </div>
+	</div>
+	<br />
+
+	<br />
+	<div class="form-group">
+	   <div class="controls">
+      	      <button class="btn btn-info" type="submit" name="decode" value="decode">Decode!</button>
+     	   </div>
+	</div>
+    </form>
+
+{% endblock %}
+
+
+{% block header2 %} 
+  {% if results %}
+     Decoded Information File
+  {% else %}
+    {% if errors %}
+       Ooops... 
+    {% endif %}
+  {% endif %}
+{% endblock %}
+
+{% block content2 %}
+  {% if results %}
+    <h3>Downloadable Files</h3>
+    <div id="downloads">
+	    <dl class="dl-horizontal">
+		    <dt><a href="{{results}}">Decoded File</a><dt>
+		    <dd>This is the file stored in your DNA sequences. The file was compressed using the <a href="http://www.bzip.org">bzip2</a> compressor. Please decompress the file using your favorite program. Enjoy!<dd>
+	    </dl>
+    </div>
+  {% else %}
+    {% if errors %}
+    <h3>Something Goes Wrong!</h3>
+    <div id="errors">
+       {{errors}}
+    </div>
+    {% endif %}
+  {% endif %}
+{% endblock %}
+<br />
+<br />
+

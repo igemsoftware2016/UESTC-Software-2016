@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% extends 'transform/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %} About {% endblock %}
+{% block header1 %} About BIO101: Design and Algorithm {% endblock %}
+
+{% block content1 %} 
+
+<h3>Background</h3>
+<p>Living in an era of information explosion, digital production, transmission and storage so far have not only revolutionized the way information is accessed and used, but also have made <a href="http://www.nature.com/nature/journal/v494/n7435/abs/nature11875.html">archiving of information an increasingly complex task </a>. Have you been perplexed by vast quantities of information? And have you ever image that there exists a practical, high-capacity, low-maintenance, and even self-copy information storage medium which would be still useful after thousands of years? It wouldn’t be only a dreamy illusion anymore because of the appearance of great DNA storage technology.
+</p>
+<div class="row text-center">
+	<img src="{% static "images/about_1.png" %}">
+	<br />
+	<p><strong>Figure 1.</strong> Genome controls the growth and development of human being.</p>
+</div>
+
+<p>
+DNA, one of the most miraculous masterpiece created by nature as the stable genetic material, hold a great promise for high-density, long-term and massive information. For example, human genome, just 3 billion base pairs, contains all of the complex biotic information of human being, including chemical molecules forming, cell growth, human developing and so on <strong>(Figure 1).</strong> Reversely why can’t we utilize DNA to store messages? Researches indicate that it is extremely dense, and spectacular high-capacity with <a href="http://dl.acm.org/citation.cfm?id=2872397">a raw limit of 1 exabyte/mm<sup>3</sup>(109 GB/mm<sup>3</sup>)</a>. In other word, every gram of DNA is equivalent to 14 thousand of 50GB blue-ray discs or 233 3TB hard disks heavy of 151 kilos. Meanwhile, compared with now comprehensively used information storage medium, DNA storage’s durability can be persistent up to centuries <strong>(Figure 2)</strong>. Grass R N, et al developed an <a href="http://onlinelibrary.wiley.com/doi/10.1002/anie.201411378/abstract">innovative preservation of digital information on DNA most lasting 1 million years in silica</a>. In general, DNA with a great number of virtues in information storage makes it an ideal archival material.
+</p>
+
+<div class="row text-center">
+	<img src="{% static "images/about_2.png" %}">
+	<br />
+	<p><strong>Figure 2.</strong>DNA storage as the bottom level of the storage hierarchy.<a href="http://dl.acm.org/citation.cfm?id=2872397">Image Source.</a></p>
+</div>
+
+<!-- First part includes 2 paragraphs,2 photos , 3 quotos -->
+
+<h3> Hardware Availability </h3>
+<p>
+	Maybe you are confused about how to store the given information into DNA material. It owes to the development of DNA sequencing <strong>(Figure 3)</strong> and synthesis technologies which make it possible to archive and read data in DNA. In 1977, Frederick Sanger adopted primer-extension strategy to develop the DNA sequencing method <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC431765/">"DNA sequencing with chain-terminating inhibitors"</a>, and it directly facilitated human genome project <strong>(HGP)</strong>. But Sanger method is too expensive and takes too long time, such that <a href="http://www.nature.com/nature/journal/v409/n6822/full/409860a0.html">HGP project spent 3 billion dollars over fifteen years</a>. Untill next-generation sequencing <strong>(NGS)</strong>, also named high-throughput sequencing, technologies generated, the cost of vast sequencing became comprehensive and really acceptable.<a href="http://www.nature.com/nature/journal/v437/n7057/full/nature03959.html"> 454 pyrosequencing</a>, <a href="http://www.nature.com/nature/journal/v456/n7218/full/nature07517.html">illumina (Solexa) sequencing</a>, <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2493394/">SOLiD sequencingare</a> are three mainly applied popular methods. Meanwhile the <a href="https://www.ncbi.nlm.nih.gov/pubmed/19350039">third generation nanopore DNA sequencing </a>has appeared. Owing to technology development, sequencing cost per genome exponential <a href="http://www.nature.com/ng/journal/v42/n11/full/ng1110-917.html#access">decrease from 1 million dollars in 2008 to just 1 thousand</a> now. Encouragingly, the cost will keep dropping, and sequencing would become ordinary just like we drink water in the near future.
+</p>
+
+<div class="row text-center">
+	<img src="{% static "images/about_3.png" %}">
+	<br />
+	<p><strong>Figure 3.</strong> The history of DNA sequencing technology progress.</p>
+</div>
+
+<p>
+Currently, chemical synthesis of short nucleic acids has been extensively used as primer, probe and so on. The process is implemented as solid-phase synthesis using <a href="http://pubs.rsc.org/en/content/articlelanding/2005/ob/b510458k#!divAbstract">phosphoramidite method</a> and phosphoramidite building blocks derived from protected 2’-deoxynucleosides (dA, dC, dG, and T), ribonucleosides (A, C, G, and U), or chemically modified nucleosides. <strong>(Figure 4)</strong>. Regrettably, we still can’t easily synthesize longish DNA segments or some possessing special second structures or high GC-content now. Although <a href="http://pubs.rsc.org/en/Content/ArticleLanding/1955/JR/JR9550002632#!divAbstract">oligonucleotide synthesis</a> has been proposed very early in 1955, DNA synthesis is much expensive than sequencing, even innovative DNA synthesis company Twist Bioscience still costs 0.04 cent of every base while just 1 cent in reading 1 million bases.	
+</p>
+
+<div class="row text-center">
+	<img src="{% static "images/about_4.png" %}">
+	<br />
+	<p><strong>Figure 4.</strong> Synthetic cycle for preparation of oligonucleotides by phosphoramidite method. <a href="https://commons.wikimedia.org/wiki/File%3AOligocycle1.png">Image from Wikipedia.</a></p>
+</div>
+
+<p>
+Considering the above situation, notwithstanding current DNA storage demand a large of investment that per megabyte were estimated at<a href="http://www.nature.com/nature/journal/v494/n7435/abs/nature11875.html"> $12,400 to encode data and $220 for retrieval</a>. It is already accessible for us. What we need to care is how to design the connection between DNA sequence and digital information. In our project we develop an innovative software Bio101 to solve the problem.
+</p>
+
+<h3> Design and Algorithm </h3>
+<p>
+Towards creating a platform for information storage in synthesized DNA, our team built the user-friendly website tool Bio101 for transformation between DNA sequences and computer files. We replace <a href="http://www.nature.com/nature/journal/v494/n7435/abs/nature11875.html">ternary transformation process</a> into quaternary system to accelerate the code speed in order to fulfill demand of web-app. Meanwhile, we still keep the randomness of DNA sequences to avoid functional gene segments.
+</p>
+
+<div class="row text-center">
+	<img src="{% static "images/about_5.png" %}">
+	<br />
+	<p><strong>Figure 5.</strong> The design of Bio101 for transformation between DNA sequences and computer files.</p>
+</div>
+
+<p>
+There are five steps in this process including compression, encryption, bit-to-nt conversion, indexing and validation. <strong>(Figure 5)</strong> This coding tool can create a convenient DNA information workflow, so researchers can choose any files they want and focus on synthesizing DNA. The surprisingly simple idea has the potential to reshape the global face of data storage in the not-too-distant future, and our work contributes to practical areas can accelerate the step to success. Please see our <a href="http://2016.igem.org/Team:UESTC-software">wiki page</a> fordetails.
+</p>
+
+{% endblock %}

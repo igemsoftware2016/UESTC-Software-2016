@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="BIO101">
+		<meta name="author" content="2016-UESTC-SOFTWARE-iGEM">
+		<link rel="shortcut icon" href="{% static "images/favicon.ico" %}" />
+		<link rel="stylesheet" href="{% static "css/bootstrapTheme.css" %}" />
+		<link rel="stylesheet" href="{% static "css/OpenSans.css" %}" />
+		<link rel="stylesheet" href="{% static "css/owl.carousel.css" %}" />
+		<link rel="stylesheet" href="{% static "css/owl.theme.css" %}" />
+		<link rel="stylesheet" href="{% static "css/custom.css" %}" />
+		<title> BIO101 - 
+			{% block title %}
+			 DNA Information Storage System 
+			{% endblock %}
+		</title>
+	</head>
+
+	<body>
+
+	<div id="container">
+	<div id="top-nav" class="navbar navbar-fixed-top">
+	  <div class="navbar-inner">
+		<div class="container">
+		  <div class="nav-collapse collapse ">
+		    <ul class="nav pull-left">
+	    	    <a href="http://2016.igem.org/Team:UESTC-software">
+		    <img src="{% static "images/uestc_software-logo.png" %}" 
+			 alt="2016 UESTC-SOftware iGEM Wiki Webpage"/>
+		    </a>
+		    </ul>
+		    <ul class="nav pull-right">
+			    <li class="nav"> <a href="{% url 'home' %}">Home</a> </li> 
+			    <li class="nav"> <a href="{% url 'encode' %}">Encode</a> </li> 
+			    <li class="nav"> <a href="{% url 'decode' %}">Decode</a> </li> 
+			    <li class="nav"> <a href="{% url 'about' %}">About </a> </li> 
+			    <li class="nav"> <a href="{% url 'edit' %}">Edit</a></li>
+		    </ul>
+		  </div>
+		</div>
+	  </div>
+	</div>
+
+        <div class="container">
+          <div class="row">
+            <div class="span12">
+          	  <h1>
+          		  {% block header1 %}
+          		  {% endblock %}
+          	  </h1>
+          	  <div id="content3">
+          		  {% block content1 %}
+          		  {% endblock %}
+          	  </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="row">
+            <div class="span12">
+          	  <h1>
+          		  {% block header2 %}
+          		  {% endblock %}
+          	  </h1>
+          	  <div id="content3">
+          		  {% block content2 %}
+          		  {% endblock %}
+          	  </div>
+            </div>
+          </div>
+        </div>
+
+	<br>
+	<div class="row text-center">
+		<a class="btn btn-success" href="{% url "encode" %}">Encode</a>
+		<a class="btn btn-info" href="{% url "decode" %}">Decode</a>
+		<a class="btn btn-warning" href="{% url "about" %}">About</a>
+	</div>
+	<br />
+	<div  id="footer">
+	  <div class="container">
+	    <div class="row">
+	    <div class="span12">
+	        <h5 class="text-muted">&copy; Copyright 2016. Designed | Developed by 
+		   <a href="http://2016.igem.org/Team:UESTC-software">2016 UESTC Software iGEM Team. </a>
+		</h5>
+	     </div>		
+	     </div>		
+	  </div>
+	</div>
+	</div>
+
+	<script src="{% static "js/jquery-1.9.1.min.js" %}"></script>
+	<script src="{% static "js/owl.carousel.js" %}"></script>
+	<script src="{% static "js/bootstrap-collapse.js" %}"></script>
+	<script src="{% static "js/bootstrap-transition.js" %}"></script>
+	<script src="{% static "js/bootstrap-tab.js" %}"></script>
+	<script src="{% static "js/application.js" %}"></script>
+
+	</body>
+</html>
