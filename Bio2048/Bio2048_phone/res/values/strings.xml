@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BIO2048</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="knowledge">
+        <item>ATGC</item>
+　　         <item>DNA</item>
+　　         <item>protein</item>
+　　         <item>organelle</item>
+　　         <item>cell</item>
+		<item>tissue</item>
+		<item>organ</item>
+		<item>system</item>
+		<item>individual</item>
+		<item>population</item>
+		<item>community</item>
+		<item>ecosystem</item>
+		<item>biosphere</item>
+    </string-array>
+
+</resources>

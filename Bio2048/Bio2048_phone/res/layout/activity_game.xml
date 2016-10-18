@@ -1,0 +1,63 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.mx.igem2048.MainActivity" >
+
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:textColor="#e8d8d7"
+        android:gravity="center"
+        android:layout_marginLeft="11dp"
+        android:layout_marginTop="94dp"
+        android:text="0" 
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+    
+    <com.mx.igem2048.view.Layout2048
+        android:id="@+id/id_game2048"
+        android:layout_width="266dp"
+        android:layout_height="266dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="205dp"
+        android:background="#c43630"
+        android:gravity="center_horizontal"
+        android:padding="10dp" >
+    </com.mx.igem2048.view.Layout2048>
+
+    <TextView
+        android:id="@+id/best"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="63dp"
+        android:layout_marginTop="111dp"
+        android:text="0"
+        android:textColor="#e8d8d7"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+    
+    <ImageButton 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/study"
+        android:src="@drawable/bt_study"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:background="#00000000"
+        />
+
+
+</RelativeLayout>

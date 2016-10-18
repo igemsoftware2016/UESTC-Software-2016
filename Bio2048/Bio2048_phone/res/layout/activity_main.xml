@@ -1,0 +1,44 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_main"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.mx.igem2048.MainActivity" >
+
+    <ImageButton
+        android:id="@+id/pattern"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/rule"
+        android:layout_marginRight="50dp"
+        android:layout_above="@+id/rule"
+        android:background="#00000000"
+        android:src="@drawable/main2" />
+
+    <ImageButton
+        android:id="@+id/play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/pattern"
+        android:layout_alignRight="@+id/pattern"
+        android:layout_marginRight="50dp"
+        android:background="#00000000"
+        android:src="@drawable/main1" />
+
+    <ImageButton
+        android:id="@+id/rule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="85dp"
+        android:layout_marginRight="50dp"
+        android:background="#00000000"
+        android:src="@drawable/main3" />
+
+
+</RelativeLayout>
