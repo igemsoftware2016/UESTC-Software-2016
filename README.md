@@ -128,10 +128,10 @@ As we can see here, decoding is the reverse of encoding.There same four steps:
 <h2>Back End</h2>
 <ul>
 <li>Pyhton 2.7</li>
-<li>Django 1.8 - <a href="https://www.djangoproject.com">https://www.djangoproject.com</a></li>
+<li>Django 1.8 - <a href="https://www.djangoproject.com" >https://www.djangoproject.com</a></li>
 </ul>
 <h1> Documentation</h1> 
-<p>Please visit our online help page:<a href="http://2016.igem.org/Team:UESTC-software/Document">Document in Wiki</a>
+<p>Please visit our online document page: <a href="http://2016.igem.org/Team:UESTC-software/Document" target="_blank">Document in Wiki</a>
 <h1>About</h1>
 <p>Developed by UESTC-SOFTWARE</p>
 
