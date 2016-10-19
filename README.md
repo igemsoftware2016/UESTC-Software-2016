@@ -1,8 +1,5 @@
-# readme  iGEM
+# Bio101 - UESTC-SOFTWARE
 
-标签（空格分隔）： doc
-
----
 <h1>Quick Start</h1>
 <p>Just visit our website:<br>
 <a href="bio101.uestc.edu.cn/transform">bio101.uestc.edu.cn/transform</a><br>
