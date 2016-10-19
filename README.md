@@ -38,7 +38,7 @@ As we can see here, decoding is the reverse of encoding.There same four steps:
 <p>To support DNA edit, we split original file into small segements before scrambling,and indepent segments can be decode and edit directly.</p>
 <p>Editing results will be displayed as text or SBOL file.</p>
 
-<p>Choosing 'Edit Method',users can edit any single DNA segment,and change the content of it.This needs help from Cas9 to destroy original DNA substance,so we also provide  a sgRNA for target.</p>
+<p>Choosing 'Editable mode',users can edit any single DNA segment,and change the content of it.This needs help from Cas9 to destroy original DNA substance,so we also provide  a sgRNA for target.</p>
 
 <h3>Directory Structure</h3>
 <pre>
@@ -140,7 +140,7 @@ Enter the location of downloaded file, like:
 cd git/Bio101
 </code>
 </pre>
-Runserver in Django.
+Run server in Django.
 <pre>
 <code>
 ./run
