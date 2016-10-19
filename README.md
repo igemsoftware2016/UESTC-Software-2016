@@ -2,27 +2,29 @@
 
 <h1>Quick Start</h1>
 <p>Just visit our website:<br>
-<a href="bio101.uestc.edu.cn/transform">bio101.uestc.edu.cn/transform</a><br>
+<a href="https://bio101.uestc.edu.cn/transform">bio101.uestc.edu.cn/transform</a><br>
 and enjoy it!
 <p>
 
 <h1>Overview</h1>
-<p> <strong>Bio101</strong>:DNA Information Storage System is such a bridge between bits and nucleotids, i.e. between the current information techology (IT) world and the future biotechnology (BT) computing world, and it is designed for the information transformation between computer files and DNA sequences.It also provides edit function embracing CAS-9'knockout feature.</p>
-<h3>Workflow：storage method</h3>
+<p> <strong>Bio101</strong>:DNA Information Storage System is such a bridge between bits and nucleotides, i.e. between the current information techology (IT) world and the future biotechnology (BT) computing world, and it is designed for the information transformation between computer files and DNA sequences.It also provides edit function embracing CAS-9'knockout feature.</p>
+<h3>Workflow：Archival mode </h3>
 
 <img src="http://bio101.uestc.edu.cn/static/images/about_5.png" >
-<p>Four steps in our workflow:
+<p>Five steps in our workflow:
 <ol>
 <li>Compress - bzip2</li>
 <li>Encrypt - isaac</li>
 <li>Bit2Nt </li>
 <li>Fragment and Add Index</li>
+<li>Validation<li>
 </ol>
 <p>
 In biotechnology, result is synthesized into DNA substcance for information storage.To extract this information, DNA need be sequenced, and decoded.
 As we can see here, decoding is the reverse of encoding.There same four steps:
 </p>
 <ol>
+<li>Sequncing</li>
 <li>Decode into long sequence</li>
 <li>Nt2Bit</li>
 <li>Decript</li>
@@ -31,7 +33,7 @@ As we can see here, decoding is the reverse of encoding.There same four steps:
 <img src="http://2016.igem.org/wiki/images/9/96/Uestc_software-modeling_table2.png" >
 <p style="fontsize:small;text-align:center;">Bit Nt translation table</p>
 </p>
-<h3>Workflow：edit method</h3>
+<h3>Workflow：Editable mode</h3>
 <img src="http://2016.igem.org/wiki/images/2/27/Uestc_software-011.jpg">
 <p>To support DNA edit, we split original file into small segements before scrambling,and indepent segments can be decode and edit directly.</p>
 <p>Editing results will be displayed as text or SBOL file.</p>
@@ -83,10 +85,6 @@ As we can see here, decoding is the reverse of encoding.There same four steps:
     ├── convert
     │   ├── __init__.py
     │   ├── bit2nt
-    │   ├── bit2ntos
-    │   ├── blastn
-    │   ├── blastn-2.5.0
-    │   ├── blastn-linux_x64-2.5.0
     │   ├── c_source
     │   │   ├── bit2nt.c
     │   │   ├── isaac64.c
@@ -96,21 +94,14 @@ As we can see here, decoding is the reverse of encoding.There same four steps:
     │   │   ├── nt2bit.c
     │   │   └── standard.h
     │   ├── convert.py
-    │   ├── database
-    │   │   ├── BIOBRICKS.nhr
-    │   │   ├── BIOBRICKS.nin
-    │   │   └── BIOBRICKS.nsq
-    │   ├── decode.py
     │   ├── decode2.py
     │   ├── edit.py
     │   ├── encode.py
     │   ├── encode2.py
     │   ├── isaac64
-    │   ├── isaac64os
-    │   ├── isbit2ntos
-    │   ├── isnt2bitos
-    │   ├── nt2bit
-    │   └── nt2bitos
+    │   ├── isbit2nt
+    │   ├── isnt2bit
+    │   └── nt2bit
     ├── forms.py
     ├── models.py
     ├── urls.py
@@ -123,29 +114,26 @@ As we can see here, decoding is the reverse of encoding.There same four steps:
 <ul>
 <li>ISAAC -<a href="http://burtleburtle.net/bob/rand/isaac.html">http://burtleburtle.net/bob/rand/isaac.html</a></li>
 <li>Zlip2 -<a href="http://www.bzip.org">http://www.bzip.org</a></li>
-<li>Fuzzy matching</li>
 </ul>
 
 <h2>Front End</h2>
 <ul>
-<li>Boostrap - <a href="http://getbootstrap.com/">http://getbootstrap.com/</a></li>
 <li>OWL Carousel - <a href="http://owlgraphic.com/owlcarousel">http://owlgraphic.com/owlcarousel</a></li>
+<li>Boostrap - <a href="http://getbootstrap.com/">http://getbootstrap.com/</a></li>
 <li>jQuery - <a href="https://jquery.com/">https://jquery.com/</a></li>
 </ul>
 
 <h2>Back End</h2>
 <ul>
 <li>Pyhton 2.7</li>
-<li>Django 1.8 - <a href="https://www.djangoproject.com">https://www.djangoproject.com</a></li>
+<li>Django 1.8.9 <a href="https://www.djangoproject.com">https://www.djangoproject.com</a></li>
 </ul>
 <h1>Installation</h1>
 Make sure there is python-2.7 in your machine.
-And if you want to runserver in your computer, you need git pip, and Django.
+And if you want to runserver in your computer, you need Django-1.8.9.
 
-    <pre><code>
-    pip django==1.18
-    </code></pre>
-Then, come into the location of downloaded file, like:
+
+Enter the location of downloaded file, like:
 <pre>
 <code>
 cd git/Bio101
@@ -154,7 +142,7 @@ cd git/Bio101
 Runserver in Django.
 <pre>
 <code>
-Python manage.py runserver
+./run
 </code>
 </pre>
 
@@ -168,13 +156,15 @@ Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
 </code>
 </pre>
-<p>If you are using OSX or Windows,you can recompile three .c file in Conver Folder.(Our app is running in service.),by:
+<p>If you are using OSX,you can recompile five .c file in Conver Folder.(Our app is running in service.),by:
 <pre>
 <code>
-cd /transform/convert/c_souce
-gcc bt2nt.c
-gcc isaac.c
-gcc nt2bt.c
+cd /transform/convert/c_source
+gcc bt2nt.c -o2 -o bit2nt
+gcc isaac.c -o2 -o isaac
+gcc nt2bt.c -o2 -o nt2bt
+gcc isnt2bt  -o2 -o isnt2bt
+gcc isnt2bt  -o2 -o isnt2bt
 </code>
 </pre>
 When you finish this, you can just run  file "RUN" by:</p>
@@ -183,7 +173,8 @@ When you finish this, you can just run  file "RUN" by:</p>
 ./run
 </code>
 </pre>
-    Visit <a href="http://127.0.0.1:8000/transform">http://127.0.0.1:8000/transform</a>,and you can enjoy our software.
+   <p> Visit <a href="http://127.0.0.1:8000/transform">http://127.0.0.1:8000/transform</a>,and you can enjoy our software.</p>
+   <P>We have not runned or tested our project on Windows, so we don't know the Dependences in it. </P>
 <h1> Documentation</h1> 
 <p>Please visit our online document page: <a href="http://2016.igem.org/Team:UESTC-software/Document" target="_blank">Document in Wiki</a>
 <h1>About</h1>
