@@ -8,7 +8,7 @@ and enjoy it!
 
 <h1>Overview</h1>
 <p> <strong>Bio101</strong>:DNA Information Storage System is such a bridge between bits and nucleotids, i.e. between the current information techology (IT) world and the future biotechnology (BT) computing world, and it is designed for the information transformation between computer files and DNA sequences.It also provides edit function embracing CAS-9'knockout feature.</p>
-<h3>Workflow</h3>
+<h3>Workflow：method A</h3>
 
 <img src="http://bio101.uestc.edu.cn/static/images/about_5.png" >
 <p>Four steps in our workflow:
@@ -31,8 +31,10 @@ As we can see here, decoding is the reverse of encoding.There same four steps:
 <img src="http://2016.igem.org/wiki/images/9/96/Uestc_software-modeling_table2.png" >
 <p style="fontsize:small;text-align:center;">Bit Nt translation table</p>
 </p>
-
-
+<h3>Workflow：method B</h3>
+<img src="http://2016.igem.org/wiki/images/2/2c/Uestc_software-liuchengtu.jpg">
+<p>To support DNA edit, we split original into small segements before scrambling,and indepent segments can be decode and edit directly.</p>
+<p>Editing results will be displayed as text or SBOL file.</p>
 
 <h3>Directory Structure</h3>
 <pre>
@@ -128,7 +130,7 @@ As we can see here, decoding is the reverse of encoding.There same four steps:
 <h2>Back End</h2>
 <ul>
 <li>Pyhton 2.7</li>
-<li>Django 1.8 - <a href="https://www.djangoproject.com" >https://www.djangoproject.com</a></li>
+<li>Django 1.8 - <a href="https://www.djangoproject.com">https://www.djangoproject.com</a></li>
 </ul>
 <h1> Documentation</h1> 
 <p>Please visit our online document page: <a href="http://2016.igem.org/Team:UESTC-software/Document" target="_blank">Document in Wiki</a>
