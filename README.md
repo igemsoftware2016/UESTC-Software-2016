@@ -8,7 +8,7 @@ and enjoy it!
 
 <h1>Overview</h1>
 <p> <strong>Bio101</strong>:DNA Information Storage System is such a bridge between bits and nucleotids, i.e. between the current information techology (IT) world and the future biotechnology (BT) computing world, and it is designed for the information transformation between computer files and DNA sequences.It also provides edit function embracing CAS-9'knockout feature.</p>
-<h3>Workflow：method A</h3>
+<h3>Workflow：storage method</h3>
 
 <img src="http://bio101.uestc.edu.cn/static/images/about_5.png" >
 <p>Four steps in our workflow:
@@ -31,7 +31,7 @@ As we can see here, decoding is the reverse of encoding.There same four steps:
 <img src="http://2016.igem.org/wiki/images/9/96/Uestc_software-modeling_table2.png" >
 <p style="fontsize:small;text-align:center;">Bit Nt translation table</p>
 </p>
-<h3>Workflow：method B</h3>
+<h3>Workflow：edit method</h3>
 <img src="http://2016.igem.org/wiki/images/2/27/Uestc_software-011.jpg">
 <p>To support DNA edit, we split original file into small segements before scrambling,and indepent segments can be decode and edit directly.</p>
 <p>Editing results will be displayed as text or SBOL file.</p>
