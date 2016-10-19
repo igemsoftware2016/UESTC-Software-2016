@@ -43,75 +43,79 @@ As we can see here, decoding is the reverse of encoding.There same four steps:
 <code>
 .
 ├── Bio101
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── urls.py.bk
+│   └── wsgi.py
+├── README.md
 ├── db.sqlite3
 ├── manage.py
 ├── media
-│   ├── download
-│   │   ├── display-original.bz2
-│   │   └── display-original_DC0Nbxi.bz2
-│   └── upload
-│       ├── display-original
-│       └── display-original_DC0Nbxi
-├── ncbi-blast-2.5.0+-x64-macosx.tar.gz
 ├── run
 ├── static
-│   ├── css
-│   │   ├── AjaxLoader.gif
-│   │   ├── OpenSans.css
-│   │   ├── bootstrapTheme.css
-│   │   ├── custom.css
-│   │   ├── owl.carousel.css
-│   │   └── owl.theme.css
-│   ├── images
-│   │   └── favicon.ico
-│   └── js
-│       ├── application.js
-│       ├── bootstrap-collapse.js
-│       ├── bootstrap-tab.js
-│       ├── bootstrap-transition.js
-│       ├── jquery-1.9.1.min.js
-│       └── owl.carousel.js
+│   ├── css
+│   │   ├── AjaxLoader.gif
+│   │   ├── OpenSans.css
+│   │   ├── bootstrapTheme.css
+│   │   ├── custom.css
+│   │   ├── owl.carousel.css
+│   │   └── owl.theme.css
+│   └── js
+│       ├── application.js
+│       ├── bootstrap-collapse.js
+│       ├── bootstrap-tab.js
+│       ├── bootstrap-transition.js
+│       ├── jquery-1.9.1.min.js
+│       └── owl.carousel.js
 ├── templates
-│   └── transform
-│       ├── about.html
-│       ├── base.html
-│       ├── decode.html
-│       ├── encode.html
-│       └── index.html
+│   └── transform
+│       ├── about.html
+│       ├── base.html
+│       ├── decode.html
+│       ├── edit.html
+│       ├── edit_backup.html
+│       ├── encode.html
+│       ├── index.html
+│       └── sgRNA_template.rdf
 └── transform
     ├── admin.py
     ├── apps.py
     ├── convert
-    │   ├── __init__.py
-    │   ├── bit2nt
-    │   ├── blastn -> blastn-linux_x64-2.5.0
-    │   ├── blastn-2.5.0
-    │   ├── blastn-linux_x64-2.5.0
-    │   ├── c_source
-    │   │   ├── bit2nt
-    │   │   ├── bit2nt.c
-    │   │   ├── isaac64
-    │   │   ├── isaac64.c
-    │   │   ├── isaac64.h
-    │   │   ├── nt2bit
-    │   │   ├── nt2bit.c
-    │   │   └── standard.h
-    │   ├── convert.py
-    │   ├── database
-    │   │   ├── BIOBRICKS.nhr
-    │   │   ├── BIOBRICKS.nin
-    │   │   └── BIOBRICKS.nsq
-    │   ├── decode.py
-    │   ├── encode.py
-    │   ├── isaac64
-    │   └── nt2bit
+    │   ├── __init__.py
+    │   ├── bit2nt
+    │   ├── bit2ntos
+    │   ├── blastn
+    │   ├── blastn-2.5.0
+    │   ├── blastn-linux_x64-2.5.0
+    │   ├── c_source
+    │   │   ├── bit2nt.c
+    │   │   ├── isaac64.c
+    │   │   ├── isaac64.h
+    │   │   ├── isbit2nt.c
+    │   │   ├── isnt2bit.c
+    │   │   ├── nt2bit.c
+    │   │   └── standard.h
+    │   ├── convert.py
+    │   ├── database
+    │   │   ├── BIOBRICKS.nhr
+    │   │   ├── BIOBRICKS.nin
+    │   │   └── BIOBRICKS.nsq
+    │   ├── decode.py
+    │   ├── decode2.py
+    │   ├── edit.py
+    │   ├── encode.py
+    │   ├── encode2.py
+    │   ├── isaac64
+    │   ├── isaac64os
+    │   ├── isbit2ntos
+    │   ├── isnt2bitos
+    │   ├── nt2bit
+    │   └── nt2bitos
     ├── forms.py
     ├── models.py
     ├── urls.py
-    └── views.py
+    ├── views.py
+    └── views_backup.py
 </code>
 </pre>
 <h1>Dependences</h1>
