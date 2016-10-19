@@ -49,10 +49,10 @@ As we can see here, decoding is the reverse of encoding.There same four steps:
 │   ├── urls.py
 │   ├── urls.py.bk
 │   └── wsgi.py
-├── README.md
+├── Uestc_software-logo_40px.png
+├── Uestc_software-logo_54px.png
 ├── db.sqlite3
 ├── manage.py
-├── media
 ├── run
 ├── static
 │   ├── css
@@ -60,6 +60,7 @@ As we can see here, decoding is the reverse of encoding.There same four steps:
 │   │   ├── OpenSans.css
 │   │   ├── bootstrapTheme.css
 │   │   ├── custom.css
+│   │   ├── grabbing.png
 │   │   ├── owl.carousel.css
 │   │   └── owl.theme.css
 │   └── js
@@ -75,38 +76,35 @@ As we can see here, decoding is the reverse of encoding.There same four steps:
 │       ├── base.html
 │       ├── decode.html
 │       ├── edit.html
-│       ├── edit_backup.html
 │       ├── encode.html
-│       ├── index.html
-│       └── sgRNA_template.rdf
-└── transform
-    ├── admin.py
-    ├── apps.py
-    ├── convert
-    │   ├── __init__.py
-    │   ├── bit2nt
-    │   ├── c_source
-    │   │   ├── bit2nt.c
-    │   │   ├── isaac64.c
-    │   │   ├── isaac64.h
-    │   │   ├── isbit2nt.c
-    │   │   ├── isnt2bit.c
-    │   │   ├── nt2bit.c
-    │   │   └── standard.h
-    │   ├── convert.py
-    │   ├── decode2.py
-    │   ├── edit.py
-    │   ├── encode.py
-    │   ├── encode2.py
-    │   ├── isaac64
-    │   ├── isbit2nt
-    │   ├── isnt2bit
-    │   └── nt2bit
-    ├── forms.py
-    ├── models.py
-    ├── urls.py
-    ├── views.py
-    └── views_backup.py
+│       └── index.html
+├── transform
+│   ├── admin.py
+│   ├── apps.py
+│   ├── convert
+│   │   ├── __init__.py
+│   │   ├── bit2nt
+│   │   ├── blastn -> blastn-linux_x64-2.5.0
+│   │   ├── blastn-2.5.0
+│   │   ├── blastn-linux_x64-2.5.0
+│   │   ├── c_source
+│   │   │   ├── bit2nt
+│   │   │   ├── bit2nt.c
+│   │   │   ├── isaac64
+│   │   │   ├── isaac64.c
+│   │   │   ├── isaac64.h
+│   │   │   ├── nt2bit
+│   │   │   ├── nt2bit.c
+│   │   │   └── standard.h
+│   │   ├── convert.py
+│   │   ├── decode.py
+│   │   ├── encode.py
+│   │   ├── isaac64
+│   │   └── nt2bit
+│   ├── forms.py
+│   ├── models.py
+│   ├── urls.py
+│   └── views.py
 </code>
 </pre>
 <h1>Dependences</h1>
@@ -114,7 +112,7 @@ As we can see here, decoding is the reverse of encoding.There same four steps:
 <ul>
 <li>ISAAC -<a href="http://burtleburtle.net/bob/rand/isaac.html">http://burtleburtle.net/bob/rand/isaac.html</a></li>
 <li>Bzip2 -<a href="http://www.bzip.org">http://www.bzip.org</a></li>
-<li>Tar</li>
+<li>Tar - <a href="http://linuxcommand.org/man_pages/tar1.html">http://linuxcommand.org/man_pages/tar1.html</a></li>
 </ul>
 
 <h2>Front End</h2>
@@ -137,7 +135,7 @@ And if you want to run the server on your computer, you need Django-1.8.9.
 Enter the location of downloaded file, like:
 <pre>
 <code>
-cd git/Bio101
+cd git/UESTC-Software-2016-master/Bio101_v4
 </code>
 </pre>
 Run server in Django.
@@ -160,12 +158,12 @@ Quit the server with CONTROL-C.
 <p>If you are using OSX,you can recompile five .c file in Conver Folder.(Our app is running in service.),by:
 <pre>
 <code>
-cd /transform/convert/c_source
-gcc bt2nt.c -o2 -o bit2nt
-gcc isaac.c -o2 -o isaac
-gcc nt2bt.c -o2 -o nt2bt
-gcc isnt2bt  -o2 -o isnt2bt
-gcc isnt2bt  -o2 -o isnt2bt
+cd transform/convert
+gcc c_source/bt2nt.c -O2 -o bit2nt
+gcc c_source/isaac.c -O2 -o isaac
+gcc c_source/nt2bt.c -O2 -o nt2bt
+gcc c_source/isnt2bt  -O2 -o isnt2bt
+gcc c_source/isnt2bt  -O2 -o isnt2bt
 </code>
 </pre>
 When you finish this, you can just run  file "RUN" by:</p>
@@ -174,8 +172,8 @@ When you finish this, you can just run  file "RUN" by:</p>
 ./run
 </code>
 </pre>
-   <p> Visit <a href="http://127.0.0.1:8000/transform">http://127.0.0.1:8000/transform</a>,and you can enjoy our software.</p>
-   <P>We have not runned or tested our project on Windows, so we don't know the Dependences in it. </P>
+   <p> Visit <a href="http://127.0.0.1:8000/transform/">http://127.0.0.1:8000/transform/</a>,and you can enjoy our software.</p>
+   <P>We have not run or tested our project on Windows, so we don't know the Dependences in it. </P>
 <h1> Documentation</h1> 
 <p>Please visit our online document page: <a href="http://2016.igem.org/Team:UESTC-software/Document" target="_blank">Document in Wiki</a>
 <h1>About</h1>
