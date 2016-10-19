@@ -2,7 +2,7 @@
 
 <h1>Quick Start</h1>
 <p>Just visit our website:<br>
-<a href="https://bio101.uestc.edu.cn/transform">bio101.uestc.edu.cn/transform</a><br>
+<a href="http://bio101.uestc.edu.cn/transform/">bio101.uestc.edu.cn/transform</a><br>
 and enjoy it!
 <p>
 
@@ -114,6 +114,7 @@ As we can see here, decoding is the reverse of encoding.There same four steps:
 <ul>
 <li>ISAAC -<a href="http://burtleburtle.net/bob/rand/isaac.html">http://burtleburtle.net/bob/rand/isaac.html</a></li>
 <li>Zlip2 -<a href="http://www.bzip.org">http://www.bzip.org</a></li>
+<li>RAR</li>
 </ul>
 
 <h2>Front End</h2>
