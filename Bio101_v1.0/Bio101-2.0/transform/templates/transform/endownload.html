@@ -1,0 +1,22 @@
+{% extends 'transform/base.html' %}
+{% load static %}
+{% block title %}Encode{% endblock %}
+{% block download %}
+<div id="encodew" class="head-btn wow fadeInLeft text-center" style="margin:10%; font-family: LatoWebMedium;">
+	<p>Your file is encoding completed.
+	<br>You can download with follow formats depend on your usage or favor.
+	<br>You can also download a <a href="/transform/eblast/">biobrick blast report</a> of your sequence.
+	<br>And you could also blast in <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome" target="_blank">NCBI</a>.
+	</p>
+
+	<form method="post" enctype="multipart/form-data" style="margin:0 auto;" action="/transform/endownload/">
+		<input type="hidden" name="csrfmiddlewaretoken" value="AyAWHaiGF9JBQwD3kyJTHRVx85QeNfSq">
+		{% csrf_token %}
+		<input type="radio" name="ftype" checked="checked" value="txt"> txt 
+		<input type="radio" name="ftype" value="fasta"> fasta 
+		<input type="radio" name="ftype" value="xml"> xml 
+		<br>
+		<input type="submit" class="btn-primary" value="Download">
+	</form>
+</div>
+{% endblock %}

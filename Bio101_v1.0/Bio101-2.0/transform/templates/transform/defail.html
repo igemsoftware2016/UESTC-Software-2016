@@ -1,0 +1,35 @@
+{% extends 'transform/base.html' %}
+{% load static %}
+{% block title %}Encode{% endblock %}
+{% block download %}
+<div id="decode" align="center">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2 col-sm-12 text-center" >
+			<p class="advice">Decode fali!
+				<br>Please cheak your sequence and secret code before try again.
+			</p>
+				<form method="post" enctype="multipart/form-data" style="margin:0 auto;" action="/transform/dupload/" onsubmit="return isVaild2()">
+					<input type="hidden" name="csrfmiddlewaretoken" value="AyAWHaiGF9JBQwD3kyJTHRVx85QeNfSq">
+					{% csrf_token %}
+					<p id="alertPath2"></p>
+					<input type="text" name="text" id="token2" style="color: Gray; width: 250px;" placeholder="input your code to decrypt" maxlength="80"><br>
+					<input type="button" class="btn btn-default" id="fakeUpload2"  value="Choose" onclick="readUpload2.click()">
+					<input type="file" name="file" id="readUpload2" style="display:none;">
+					<input class="btn btn-default" type="submit" value="Submit">
+				</form>
+			<div style="padding-top: 60px;">
+				<p>
+					File format: txt, fasta, xml<br>
+					<b>Note: </b>txt format contain prue DNA sequences with 215bp per line.<br>
+					fasta format contain all sequences in a file.<br>
+					xml format contain all sequences in a file. And it agree with SBOL standards.<br>
+					<b>Be sure your secret code and DNA sequences are corrcet.</b>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/onChange.js' %}"></script>
+{% endblock %}

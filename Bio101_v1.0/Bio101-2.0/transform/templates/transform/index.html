@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %} 
+	<title>{% block title %}Bio 101{% endblock %}</title>
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" charset=utf-8>
+	<link rel="shortcut icon" href="{% static 'images/i1.ico' %}">
+	<!-- CSS Files -->
+	<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+	<link href="{% static 'css/animate.css' %}" rel="stylesheet" media="screen">
+	<link href="{% static 'css/owl.theme.css' %}" rel="stylesheet">
+	<link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet">
+	<link href="{% static 'css/styles.css' %}" rel="stylesheet" media="screen">
+
+</head>
+
+
+<body data-spy="scroll" data-target="#navbar-scroll" >
+	{% load staticfiles %}
+	<div id="top"></div>
+	{% block home %}
+	<div class="fullscreen landing parallax" style="background-image:url( {% static 'images/background.jpg' %});background-size:cover">
+		<div class="overlay">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center">
+          <h1  class="wow fadeInLeft">B<span class="smaller">io101</span></h1>
+						<h3>
+							D<span class="smaller">NA</span>
+              I<span class="smaller">NFORMATION</span>
+							S<span class="smaller">TORAGE</span>
+							S<span class="smaller">YSTEM</span>
+						</h3>
+						<h4>UESTC-SOFTWARE</h4>
+
+						<div class="landing-text wow fadeInUp">
+							<p style="color:#666;">You can use our software to encrypt any file within 200MB and encode it to DNA sequences, and you can also decode and decrypt the DNA sequences at any time.</p>
+						</div>
+
+						<div class="head-btn wow fadeInLeft">
+							<a href="#encode" class="btn btn-default">Encode</a>
+							<a href="#decode" class="btn btn-default">Decode</a>
+						</div>
+						<br/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endblock %}
+
+	{% block menu %}
+	<div id="menu">
+		<nav class="navbar-wrapper navbar-default" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-themers">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand site-name" href="#top">
+						<img src="{% static 'images/logo.png' %}" alt="logo"></a>
+				</div>
+
+				<div id="navbar-scroll" class="collapse navbar-collapse navbar-themers navbar-right">
+					<ul class="nav navbar-nav">
+						<li><a href="#top">Home</a></li>
+						<li><a href="#encode">Encode</a></li>
+						<li><a href="#decode">Decode</a></li>
+						<li><a href="#services">Usage</a></li>
+						<li><a href="#about-us">About</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+	{% endblock %}
+
+	{% block encode %}
+	<div id="encode" >
+		<div class="action  parallax"  data-img-width="2000" data-img-height="1334" data-diff="100">
+			<div class=" downloadSection" ">
+				<div class="container" >
+					<div class="row">
+						<div class="text-center">
+							<h2 class="wow fadeInLeft" style="color:black;">
+								Now
+								<br>Select a file to encode
+							</h2>
+							<form method="post" enctype="multipart/form-data" style="margin:0 auto; " action="/transform/eupload/" onsubmit="return isVaild()">
+								<input type="hidden" name="csrfmiddlewaretoken" value="AyAWHaiGF9JBQwD3kyJTHRVx85QeNfSq">
+								{% csrf_token %}
+								<p id="alertPath"></p>
+								<input type="text" name="token" id="token1" style="color: Gray; width: 250px;" placeholder="input a code to encrypt your file" maxlength="80"><br>
+								<input type="button" class="btn btn-default" id="fakeUpload"  value="Choose">
+								<input type="file" name="file" style="display:none;" id="readUpload" onchange="checkSize(this);">
+								<input class="btn btn-default" type="submit" value="Submit" >
+							</form>
+							<p class="advice">You can upload any file to encode within 200MB.<br>
+							You can input a code whith in 80 letters to encrypt your file. <br>
+							<b>Remember your code!</b>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endblock %}
+
+	{% block decode %}
+	<div id="decode">
+		<div class="action  parallax"  data-img-width="2000" data-img-height="1334" data-diff="100">
+			<div class=" downloadSection" ">
+				<div class="container" >
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2 col-sm-12 text-center">
+							<h2 class="wow fadeInLeft" style="color:black;">
+								Now
+								<br>Select a file begin to decode
+							</h2>
+							<form method="post" enctype="multipart/form-data" style="margin:0 auto;" action="/transform/dupload/" onsubmit="return isVaild2()">
+								<input type="hidden" name="csrfmiddlewaretoken" value="AyAWHaiGF9JBQwD3kyJTHRVx85QeNfSq">
+								{% csrf_token %}
+								<p id="alertPath2"></p>
+								<input type="text" name="text" id="token2" style="color: Gray; width: 250px;" placeholder="input your code to decrypt" maxlength="80"><br>
+								<input type="button" class="btn btn-default" id="fakeUpload2"  value="Choose">
+								<input type="file" name="file" id="readUpload2" style="display:none;">
+								<input class="btn btn-default" type="submit" value="Submit">
+							</form>
+							<p class="advice">
+								File format: txt, fasta, xml. <a href="{% static 'images/example.pdf' %}" target="_blank">example</a><br>
+								<b>Note: </b>txt format contain prue DNA sequences with 215bp per line.<br>
+								fasta format contain all sequences in a file.<br>
+								xml format contain all sequences in a file. And it agree with SBOL standards.<br>
+								<b>Please input your code to decrypt your file.</b>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endblock %}
+
+<!-- 	<div id="blast">
+		<div class="action  parallax"  data-img-width="2000" data-img-height="1334" data-diff="100">
+			<div class=" downloadSection" ">
+				<div class="container" >
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2 col-sm-12 text-center">
+							<h2 class="wow fadeInLeft" style="color:black;">
+								Now
+								<br>Select a file begin to decode
+							</h2>
+							<form method="post" enctype="multipart/form-data" style="margin:0 auto;" action="/transform/dupload/" onsubmit="return isVaild2()">
+								<input type="hidden" name="csrfmiddlewaretoken" value="AyAWHaiGF9JBQwD3kyJTHRVx85QeNfSq">
+								{% csrf_token %}
+								<p id="alertPath2"></p>
+								<input type="button" class="btn btn-default" id="fakeUpload2"  value="Choose">
+								<input type="file" name="file" id="readUpload2" style="display:none;">
+								<input class="btn btn-default" type="submit" value="Submit">
+							</form>
+							<p class="advice">
+								File format: txt, fasta, xml. <a href="{% static 'images/example.pdf' %}" target="_blank">example</a><br>
+								<b>Note: </b>txt format contain prue DNA sequences with 215bp per line.<br>
+								fasta format contain all sequences in a file.<br>
+								xml format contain all sequences in a file. And it agree with SBOL standards.<br>
+								<b>Please input your code to decrypt your file.</b>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> -->
+
+	{% block usage %}
+	<div id="services">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1 col-sm-12 text-center feature-title">
+					<h2 style="padding-top:50px;">Usage</h2>
+					<p align="left" >
+						Now, we will introduce the workflows of our software briefly.
+						The software is simple, such as putting and getting something from the fridge.
+						The software is divided into two parts: <strong>1.</strong>
+						make the files compression, then convert them to DNA sequence; <strong>2.</strong>
+						transform DNA sequence inverse to form a file.
+						<br> <b>1)	Encode</b>
+						There are two buttons on home page. It will jump to the <u>CORE</u>
+						or <u>DECODE</u>
+						show interface in the situation that users click the corresponding button. Meanwhile, menu bar can also complete the same task. If you have been familiar with our software, let's start!
+							What you need to do is to click the
+						<u><i>choose</i></u>
+						&nbsp; button, then select a file. Don't forget to click the
+						<u><i>submit</i></u>
+						&nbsp;button. During the transforming time, you can drink a cup of coffee or scan NFL news. There is a pop-up reminder when the task is completed. Click
+						<u>
+							<i>download</i>
+						</u>
+						&nbsp; button to download the result of DNA sequence to your computer.
+						<br> <b>2)	Decode</b>
+						If you need to convert DNA sequence to a file one day, don't worry. The software provide the convenient and efficient method for you. Click
+						<u>
+							<i>choose</i>
+						</u>
+						&nbsp;button on DECODE interface again. When you have selected a file, click
+						<u>
+							<i>submit</i>
+						</u>
+						&nbsp; button. After that, you will watch NBA to wait for your file.
+						The time of transformation may be long, so have a break. Then download your file.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endblock %}
+
+	{% block about %}
+	<div id="about-us">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1 col-sm-12 text-center feature-title">
+
+					<h2>About Our Team</h2>
+					<img src="{% static 'images/photo.png' %}" style="margin:0 auto;width:80%;" alt="team picture">
+					<p>
+						We are the UESTC-Software iGEM Team for 2016. From the school tournament, we stood out to become team members. We were chosen and we are fighting for the same goal. We got to be familiar with each other, personal interest and speciality divided us into small groups. The work of small groups enabled us to exchange ideas and clear division of labor. It greatly carried forward the project efficiently. Over the course of the summer, UESTC-Software have worked hard to achieve what we setted out to do. We are totally willing to promote the synthetic biology as a whole and make research on it more convenient relying on our efforts.
+
+					</p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	{% endblock %}
+
+	{% block footer %}
+	<footer id="footer">
+		<div class="container col-sm-12 text-center">
+			<ul>
+				<a  href="https://github.com/IGEM-UESTC-software" target="_blank">
+					<img src="{% static 'images/github.png' %}" alt="UESTC" width="20" height="20"></a>
+				<a  href="http://www.uestc.edu.cn/" target="_blank">
+					<img src="{% static 'images/school.png' %}" alt="UESTC" height="20"></a>
+				<a  href="http://weibo.com/u/5621240588?refer_flag=1001030101_&is_hot=1" target="_blank">
+					<img src="{% static 'images/weibo.png' %}" alt="UESTC" width="20" height="20"></a>
+			</ul>
+		</div>
+		<div>
+			<p>
+				No.4, Section 2, North Jianshe Road, University of Electronic Science and Technology of China
+			</p>
+			<p>@2016 Designed | Developed by UESTC_SOFTWARE iGEM</p>
+		</div>
+	</footer>
+	{% endblock %}
+
+	<script src="{% static 'js/jquery.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/custom.js' %}"></script>
+	<script src="{% static 'js/jquery.sticky.js' %}"></script>
+	<script src="{% static 'js/wow.min.js' %}"></script>
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<!-- 	<script src="{% static 'js/ekko-lightbox-min.js' %}"></script> -->
+	<script src="{% static 'js/onChange.js' %}"></script>
+</body>
+</html>
