@@ -138,7 +138,7 @@ As we can see here, decoding is the reverse of encoding.There same four steps:
 <li>Pyhton 2.7</li>
 <li>Django 1.8 - <a href="https://www.djangoproject.com">https://www.djangoproject.com</a></li>
 </ul>
-<h1>Installation<h1>
+<h1>Installation</h1>
 Make sure there is python-2.7 in your machine.
 And if you want to runserver in your computer, you need git pip, and Django.
 
