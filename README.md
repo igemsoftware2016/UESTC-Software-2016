@@ -32,7 +32,7 @@ As we can see here, decoding is the reverse of encoding.There same four steps:
 <p style="fontsize:small;text-align:center;">Bit Nt translation table</p>
 </p>
 <h3>Workflow：method B</h3>
-<img src="http://2016.igem.org/wiki/images/2/2c/Uestc_software-liuchengtu.jpg">
+<img src="http://2016.igem.org/wiki/images/2/27/Uestc_software-011.jpg">
 <p>To support DNA edit, we split original into small segements before scrambling,and indepent segments can be decode and edit directly.</p>
 <p>Editing results will be displayed as text or SBOL file.</p>
 
