@@ -1,0 +1,25 @@
+{% extends 'transform/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %} DNA Information Storage System {% endblock %}
+{% block header1 %} BIO101: DNA Information Storage System {% endblock %}
+
+{% block content1 %} 
+	<div id="owl-demo" class="owl-carousel">
+           <div class="item"><img class="lazyOwl" data-src="{% static "images/uestc_software_bio101_1.png" %}" alt="DNA Information Storage - High Density and High Capacity"></div>
+           <div class="item"><img class="lazyOwl" data-src="{% static "images/uestc_software_bio101_2.png" %}" alt="DNA Information Storage - Bridge between IT and BT"></div>
+           <div class="item"><img class="lazyOwl" data-src="{% static "images/uestc_software_bio101_3.png" %}" alt="DNA Information Storage - Flowchart"></div>
+           <div class="item"><img class="lazyOwl" data-src="{% static "images/uestc_software_bio101_4.png" %}" alt="DNA Information Storage - Long shelf life"></div>
+	 </div>
+{% endblock %}
+
+{% block header2 %} Encode Files and Decode Sequences {% endblock %}
+
+{% block content2 %}
+ <p>DNA is a basic and univeral data storage material in biology choosen by Nature. We can use artificial DNA sequences synthesized with commerically available oligonucleotide synthesis machines to store information and use DNA sequencing machines for retrival. As an information storage material, DNA has many advantages compared with electronic materials currently in use, such as  high capacity, large density and long shelf-life, if held in right conditions.</p>
+ <p>
+ To use DNA for information storage in this electronic computer era, we need to devise a protocol to convert traditional computer files into DNA molecules and retreive the information given the sequenced DNA data. Bio101:DNA Information Storage System is such a bridge between bits and nucleotids, i.e. between the current information techology (IT) world and the future biotechnology (BT) computing world, and it is designed for the information transformation between computer files and DNA sequences. 
+ </p>
+{% endblock %}
+

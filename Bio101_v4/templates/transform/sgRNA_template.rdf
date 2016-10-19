@@ -1,0 +1,108 @@
+<?xml version="1.0" ?>
+<rdf:RDF xmlns:pr="http://partsregistry.org" xmlns:bio101="http://2016.igem.org/Team:UESTC-software" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sbol="http://sbols.org/v2#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:prov="http://www.w3.org/ns/prov#">
+  <sbol:ModuleDefinition rdf:about="http://bio101.uestc.edu.cn/transform/sgRNA_template/0.1">
+    <sbol:persistentIdentity rdf:resource="http://bio101.uestc.edu.cn/transform/sgRNA_template"/>
+    <sbol:displayId>sgRNA template</sbol:displayId>
+    <sbol:version>0.1</sbol:version>
+    <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="http://bio101.uestc.edu.cn/transform/sgRNA_template/pBAD/0.1">
+        <sbol:persistentIdentity rdf:resource="http://bio101.uestc.edu.cn/transform/sgRNA_template/pBAD"/>
+        <sbol:displayId>pBAD promoter</sbol:displayId>
+        <sbol:version>0.1</sbol:version>
+        <sbol:definition rdf:resource="http://bio101.uestc.edu.cn/transform/pBAD/0.1"/>
+        <sbol:access rdf:resource="http://sbols.org/v2#private"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#none"/>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+    <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="http://bio101.uestc.edu.cn/transform/sgRNA_template/sgRNA/0.1">
+        <sbol:persistentIdentity rdf:resource="http://bio101.uestc.edu.cn/transform/sgRNA_template/sgRNA"/>
+        <sbol:displayId>sgRNA</sbol:displayId>
+        <sbol:version>0.1</sbol:version>
+        <sbol:definition rdf:resource="http://bio101.uestc.edu.cn/transform/sgRNA/0.1"/>
+        <sbol:access rdf:resource="http://sbols.org/v2#private"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#none"/>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+    <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="http://bio101.uestc.edu.cn/transform/sgRNA_template/Cas9_handle/0.1">
+        <sbol:persistentIdentity rdf:resource="http://bio101.uestc.edu.cn/transform/sgRNA_template/Cas9_handle"/>
+        <sbol:displayId>Cas9 handle</sbol:displayId>
+        <sbol:version>0.1</sbol:version>
+        <sbol:definition rdf:resource="http://bio101.uestc.edu.cn/transform/Cas9_handle/0.1"/>
+        <sbol:access rdf:resource="http://sbols.org/v2#private"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#none"/>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+    <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="http://bio101.uestc.edu.cn/transform/sgRNA_template/SPyogenes_term/0.1">
+        <sbol:persistentIdentity rdf:resource="http://bio101.uestc.edu.cn/transform/sgRNA_template/SPyogenes_term"/>
+        <sbol:displayId>S. pyogenes terminator</sbol:displayId>
+        <sbol:version>0.1</sbol:version>
+        <sbol:definition rdf:resource="http://bio101.uestc.edu.cn/transform/SPyogenes_term/0.1"/>
+        <sbol:access rdf:resource="http://sbols.org/v2#private"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#none"/>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+  </sbol:ModuleDefinition>
+  <sbol:ComponentDefinition rdf:about="http://bio101.uestc.edu.cn/transform/pBAD/0.1">
+    <sbol:persistentIdentity rdf:resource="http://bio101.uestc.edu.cn/transform/pBAD"/>
+    <sbol:displayId>pBAD promoter</sbol:displayId>
+    <sbol:version>0.1</sbol:version>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000167"/>
+    <sbol:sequence rdf:resource="http://bio101.uestc.edu.cn/transform/pBAD_seq"/>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="http://bio101.uestc.edu.cn/transform/sgRNA/0.1">
+    <sbol:persistentIdentity rdf:resource="http://bio101.uestc.edu.cn/transform/sgRNA"/>
+    <sbol:displayId>sgRNA</sbol:displayId>
+    <sbol:version>0.1</sbol:version>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0001998"/>
+    <sbol:sequence rdf:resource="http://bio101.uestc.edu.cn/transform/sgRNA_seq"/>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="http://bio101.uestc.edu.cn/transform/Cas9_handle/0.1">
+    <sbol:persistentIdentity rdf:resource="http://bio101.uestc.edu.cn/transform/Cas9_handle"/>
+    <sbol:displayId>Cas9 handle</sbol:displayId>
+    <sbol:version>0.1</sbol:version>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0001654"/>
+    <sbol:sequence rdf:resource="http://bio101.uestc.edu.cn/transform/Cas9_handle_seq"/>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="http://bio101.uestc.edu.cn/transform/SPyogenes_term/0.1">
+    <sbol:persistentIdentity rdf:resource="http://bio101.uestc.edu.cn/transform/SPyogenes_term"/>
+    <sbol:displayId>S. pyogenes terminator</sbol:displayId>
+    <sbol:version>0.1</sbol:version>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000141"/>
+    <sbol:sequence rdf:resource="http://bio101.uestc.edu.cn/transform/SPyogenes_term_seq"/>
+  </sbol:ComponentDefinition>
+  <sbol:Sequence rdf:about="http://bio101.uestc.edu.cn/transform/pBAD_seq/0.1">
+    <sbol:persistentIdentity rdf:resource="http://bio101.uestc.edu.cn/transform/pBAD_seq"/>
+    <sbol:displayId>pBAD promoter sequence</sbol:displayId>
+    <sbol:version>0.1</sbol:version>
+    <sbol:elements>GGGACCAAAGCCATGACAAAAACGCGTAACAAAAGTGTCTATAATCACGGCAGAAAAGTCCACATTGATTATTTGCACGGCGTCACACTTTGCTATGCCATAGCATTTTTATCCATAAGATTAGCGGATCCTACCTGACGCTTTTTATCGCAACTCTCTACTGTTTCTCCATA</sbol:elements>
+    <sbol:encoding rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
+  </sbol:Sequence>
+  <sbol:Sequence rdf:about="http://bio101.uestc.edu.cn/transform/sgRNA_seq/0.1">
+    <sbol:persistentIdentity rdf:resource="http://bio101.uestc.edu.cn/transform/sgRNA_seq"/>
+    <sbol:displayId>sgRNA sequence</sbol:displayId>
+    <sbol:version>0.1</sbol:version>
+    <sbol:elements>TEMPLATESEQUENCE</sbol:elements>
+    <sbol:encoding rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
+  </sbol:Sequence>
+  <sbol:Sequence rdf:about="http://bio101.uestc.edu.cn/transform/Cas9_handle_seq/0.1">
+    <sbol:persistentIdentity rdf:resource="http://bio101.uestc.edu.cn/transform/Cas9_handle_seq"/>
+    <sbol:displayId>Cas9 handle</sbol:displayId>
+    <sbol:version>0.1</sbol:version>
+    <sbol:elements>GTTTTAGAGCTAGAAATAGCAAGTTAAAATAAGGCTAGTCCG</sbol:elements>
+    <sbol:encoding rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
+  </sbol:Sequence>
+  <sbol:Sequence rdf:about="http://bio101.uestc.edu.cn/transform/SPyogenes_term_seq/0.1">
+    <sbol:persistentIdentity rdf:resource="http://bio101.uestc.edu.cn/transform/SPyogenes_term_seq"/>
+    <sbol:displayId>S. pyogenes terminator</sbol:displayId>
+    <sbol:version>0.1</sbol:version>
+    <sbol:elements>ATTGCAACTTGAAAAGTGGCACCGAGTCGGTGCTTTTTTT</sbol:elements>
+    <sbol:encoding rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
+  </sbol:Sequence>
+</rdf:RDF>

@@ -1,0 +1,99 @@
+{% extends 'transform/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %} Edit DNA-based File {% endblock %}
+{% block header1 %} Edit DNA-based File {% endblock %}
+
+{% block content1 %} 
+<div>
+	<p>This is a showcase on how the editing task can be performed on a DNA based file. Please submit one DNA fragment along the encoding token to decode the information first. After editing the content, click the submit button again to acquire the new DNA segment for the substitution and the BioBrick part which can express sgRNA to degrade the original fragment, working with the CRISPR/Cas9 system.</p>
+	<p>Result will be displayed as text directly, but you can also download it as SBOL file if working with the CRISPR/Cas9 system </p>
+	<p>NOTE 1: In the current implementation the edited information should have the same length as the original information.</p>
+	<p>NOTE 2: The encryption token for the default example is "123".</p>
+	<p>NOTE 3: The encryption token for editing should be kept the same with the original encoding.</p>
+
+	<!-- <b>Note:</b>&nbsp the new sequence must have the same length with the old one. </p> -->
+
+   </div>
+   <br>
+
+<form class="form-horizontal" enctype="multipart/form-data" method="post" action="{% url "edit" %}">
+   	{% csrf_token %}
+   	{% for hidden in encode_form.hidden_fields %}
+   		{{ hiden }}
+	{% endfor %}
+	<br>
+	{% if flag %}
+	<div class="form-group">
+		{{edit_form.edit_fragment.errors}}
+		<label class="control-label">Original DNA Fragment: </label>
+		<div class="controls" >
+			<textarea type="text" class="input-xlarge" name="{{ edit_form.edit_fragment.html_name}}" required style="height: 70px; width: 850px; font-size: 12px;">TACGTACGTACGTAGGCTTTGGTATACGAGCAGGTTGAATGCGCCTATGCATCATAGGCGTTCATTGTACAGATCCATTGTGTTGTACGTTAGCCCCGCAATTTGGCGGACGATGGGAACATATATCCATGCTCACACCCTGCCG</textarea>
+			<!-- <textarea type="text" class="input-xlarge" name="edit_fragment" required style="height: 70px; width: 850px; font-size: 12px;">TACGTACGTACGTAGGCTTTGGTATACGAGCAGGTTGAATGCGCCTATGCATCATAGGCGTTCATTGTACAGATCCATTGTGTTGTACGTTAGCCCCGCAATTTGGCGGACGATGGGAACATATATCCATGCTCACACCCTGCCG</textarea> -->
+		</div>
+		<br>
+		{{encode_form.edit_token.errors}}
+		<label class="control-label">Encryption Token:</label>
+		<div class="controls" >
+			<input type="password" class="input-xlarge" name="{{ edit_form.edit_token.html_name}}" required>
+			<!-- <input type="password" class="input-xlarge" name="edit_token" required> -->
+		</div>
+	<br>
+	<div class="form-group">
+		<div class="controls">
+			<button class="btn btn-warning" type="submit" name="edit" value="edit">Submit!</button>
+		</div>
+	</div>
+	<br>
+	{% endif %}
+</form>
+
+
+
+<form class="form-horizontal" enctype="multipart/form-data" method="post" action="{% url "editted" %}">
+	{% csrf_token %}
+	{% if text %}
+		<label class="control-label">Edit This:</label>
+		<textarea name="original" style="display: none;">{{ original }}</textarea>
+		<div class="controls" >
+			<!-- <textarea type="text" class="input-xlarge" name="{{ edit_form.edit_fragment.html_name}}" placeholder="{{encode_form.edit_token2.help_text}}" required autofocus style="height: 70px; width: 850px; font-size: 12px;">{{ text }}</textarea> -->
+			<textarea type="text" class="input-xlarge" name="edit_text" required autofocus style="height: 70px; width: 850px; font-size: 12px;">{{ text }}</textarea>
+		</div>
+		<br>
+		<label class="control-label">Encryption Token:</label>
+		<div class="controls" >
+			<!-- <input type="password" class="input-xlarge" name="{{ edit_form.edit_token.html_name}}" required> -->
+			<input type="password" class="input-xlarge" name="edit_token" required>
+		</div>
+		<br>
+
+		<div class="form-group">
+			<div class="controls">
+				<button class="btn btn-warning" type="submit" name="edit" value="edit">Submit!</button>
+			</div>
+		</div>
+	{% endif %}
+</form>
+{% endblock %}
+
+
+{% block content2 %}
+	{% if edit %}
+		<div id="downloads">
+			<h1>Results</h1>
+			<h3>Original DNA Fragment:</h3>
+			<p class="controls"> {{ original }} </p>
+			<h3>Edited DNA Fragment:</h3>
+			<p class="controls"> {{ edit }} </p>
+			<dl class="dl-horizontal">
+			<h3>sgRNA Expression Cassette:</h3>
+		    	<dt><a href="{{ xmlPath }}">SBOL File</a></dt>
+				<dd>This is a BioBrick part in the <a href="http://sbolstandard.org">SBOL</a> formatwhich expresses the sgRNA which targets the original DNA fragment. When working with an appropriate CRISPR/Cas9 system, it guides the degradation of the targeted DNA fragment. </dd>
+	    	</dl>
+		</div>
+	{% endif %}
+{% endblock %}
+
+<br />
+<br />

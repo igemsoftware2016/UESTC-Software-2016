@@ -1,0 +1,104 @@
+{% extends 'tmmu/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %} Protein Calculator {% endblock %}
+
+{% block body_block_top %}
+	  <h1>Modeling Visualization
+      </h1>
+      <p> In this part, we want to improve our math model in part 1 to make it more convenient to use by researchers, and make it become a tool and visual. More detail in <a href="http://2016.igem.org/Team:TMMU_China/Home#">our wiki.</a>.
+</p>
+{% endblock %}
+
+{% block body_block_bottom %}
+    <!-- use containter to achive parallel -->
+    <div class="container" >
+    <div class="row">
+   	<p><strong>There are 4 steps:</strong><br>
+   	1. Download this standard form (in MS Excel format).<br>
+	2. Add three groups of growth curve data in the <strong >yellow</strong> area.<br>
+	3. Upload the finished form, to get result img.<br>
+   	4. Input nis concentration, and choose time, to get result.<br>
+
+	</p>
+	
+    
+    <div class="col-md-4">
+	<a class="btn btn-success" type="download" name="download" value="download" href="{% url "download" %}">Download</a>
+	<!--     download part, use the boostrap default <button></button> function is in views.py-->
+
+    <br>
+	<br>
+	 <p>
+    	Please Upload the changed file here:
+   	 </p>
+
+    <!-- upload-file part -->
+
+   	<form method="post" enctype="multipart/form-data"  action="{% url "upload"%}" name="file_form">
+	<input type="hidden" name="upload" value="upload">
+	{% csrf_token %}
+	<input type="file" name="file" required>
+	<br>
+	<input class="btn btn-success" type="submit" value="Submit">						
+	</form>
+
+	<br>
+    {% if path_target or Result %}
+	<!-- upload-parameter part-->	
+	<form method="post" enctype="multipart/form-data" action="{% url "upload_num" %}" name="num_form">
+	<label>Nisin:</label>
+	{% csrf_token %}
+	<input type="number" name="Nisin" placeholder="1~2000">
+    <label>ng/ml</label>
+    <br>	
+    <label>Time:</label>
+	<select  name="time" value="Time">
+	  <option name="16_Hours" value="16_Hours">16 Hours</option>
+      <option name="8_Hours" value="8_Hours">8 Hours</option>
+	</select>	
+	<br>
+	<input type="submit" name="submit" class="btn btn-success">
+	</form>
+	{% endif %}
+	</div> 
+	<!-- for chart -->
+    
+	<div class="col-md-6">   
+	{% if path_target %}
+	 <img src="/media/tmmu/images/{{ path_target }}" style="margin-top:-20%;width:100%;height:100%;" >
+	{% endif %}
+    {% if Result %}
+	   <h2>Result</h2>
+	   <p>Your Output is: </p>
+	   <p>{{ Result }}<P>
+	{% endif %}
+
+	</div>
+	</div>
+	</div>
+    
+   
+<!-- code from Wang-->
+<!-- 	<form class="form-signin" method="post" name="num_form">
+	  {% csrf_token %}
+	  {% for field in form.visible_fields %}
+	      {{ field.errors }}
+	      {{ field.help_text }}
+	      {{ field.label }}
+	      {{ field }}
+	      <br />
+	      <br />
+	  {% endfor %}
+	 <button class="btn btn-success" type="submit" name="submit" value="submit" >Submit</button>
+	</form>
+	{% if results %}
+	   <h2>Results</h2>
+	   <p>Your input are: value1 = {{results.value1}}, value2 = {{results.value2}}.</p>
+	{% endif %} -->
+	<!-- {% if results %}
+	   <h2>Results</h2>
+	   <p>Your input are: value1 = {{results.value1}}, value2 = {{results.value2}}.</p>
+	{% endif %} -->
+{% endblock %}
