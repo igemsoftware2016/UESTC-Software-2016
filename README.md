@@ -33,8 +33,10 @@ As we can see here, decoding is the reverse of encoding.There same four steps:
 </p>
 <h3>Workflow：method B</h3>
 <img src="http://2016.igem.org/wiki/images/2/27/Uestc_software-011.jpg">
-<p>To support DNA edit, we split original into small segements before scrambling,and indepent segments can be decode and edit directly.</p>
+<p>To support DNA edit, we split original file into small segements before scrambling,and indepent segments can be decode and edit directly.</p>
 <p>Editing results will be displayed as text or SBOL file.</p>
+
+<p>Choosing 'Edit Method',users can edit any single DNA segment,and change the content of it.This needs help from Cas9 to destroy original DNA substance,so we also provide  a sgRNA for target.</p>
 
 <h3>Directory Structure</h3>
 <pre>
