@@ -7,7 +7,7 @@ and enjoy it!
 <p>
 
 <h1>Overview</h1>
-<p> <strong>Bio101</strong>:DNA Information Storage System is such a bridge between bits and nucleotides, i.e. between the current information techology (IT) world and the future biotechnology (BT) computing world, and it is designed for the information transformation between computer files and DNA sequences.It also provides edit function embracing CAS-9'knockout feature.</p>
+<p> <strong>Bio101</strong>:DNA Information Storage System is such a bridge between bits and nucleotides, i.e. between the current information techology (IT) world and the future biotechnology (BT) computing world, and it is designed for the information transformation between computer files and DNA sequences.It also provides editing function using the CRISPR/CAS9 system.</p>
 <h3>Workflow：Archival mode </h3>
 
 <img src="http://bio101.uestc.edu.cn/static/images/about_5.png" >
@@ -110,11 +110,11 @@ As we can see here, decoding is the reverse of encoding.There same four steps:
 </code>
 </pre>
 <h1>Dependences</h1>
-<h2>Algorithm</h2>
+<h2>Algorithm and Utilities</h2>
 <ul>
 <li>ISAAC -<a href="http://burtleburtle.net/bob/rand/isaac.html">http://burtleburtle.net/bob/rand/isaac.html</a></li>
-<li>Zlip2 -<a href="http://www.bzip.org">http://www.bzip.org</a></li>
-<li>RAR</li>
+<li>Bzip2 -<a href="http://www.bzip.org">http://www.bzip.org</a></li>
+<li>Tar</li>
 </ul>
 
 <h2>Front End</h2>
@@ -130,8 +130,8 @@ As we can see here, decoding is the reverse of encoding.There same four steps:
 <li>Django 1.8.9 <a href="https://www.djangoproject.com">https://www.djangoproject.com</a></li>
 </ul>
 <h1>Installation</h1>
-Make sure there is python-2.7 in your machine.
-And if you want to runserver in your computer, you need Django-1.8.9.
+Make sure that there is python-2.7 on your machine.
+And if you want to run the server on your computer, you need Django-1.8.9.
 
 
 Enter the location of downloaded file, like:
