@@ -17,7 +17,7 @@ and enjoy it!
 <li>Encrypt - isaac</li>
 <li>Bit2Nt </li>
 <li>Fragment and Add Index</li>
-<li>Validation<li>
+<li>Validation</li>
 </ol>
 <p>
 In biotechnology, result is synthesized into DNA substcance for information storage.To extract this information, DNA need be sequenced, and decoded.
