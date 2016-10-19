@@ -168,7 +168,21 @@ Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
 </code>
 </pre>
-
+<p>If you are using OSX or Windows,you can recompile three .c file in Conver Folder.(Our app is running in service.),by:
+<pre>
+<code>
+cd /transform/convert/c_souce
+gcc bt2nt.c
+gcc isaac.c
+gcc nt2bt.c
+</code>
+</pre>
+When you finish this, you can just run  file "RUN" by:</p>
+<pre>
+<code>
+./run
+</code>
+</pre>
     Visit <a href="http://127.0.0.1:8000/transform">http://127.0.0.1:8000/transform</a>,and you can enjoy our software.
 <h1> Documentation</h1> 
 <p>Please visit our online document page: <a href="http://2016.igem.org/Team:UESTC-software/Document" target="_blank">Document in Wiki</a>
