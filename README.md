@@ -138,6 +138,38 @@ As we can see here, decoding is the reverse of encoding.There same four steps:
 <li>Pyhton 2.7</li>
 <li>Django 1.8 - <a href="https://www.djangoproject.com">https://www.djangoproject.com</a></li>
 </ul>
+<h1>Installation<h1>
+Make sure there is python-2.7 in your machine.
+And if you want to runserver in your computer, you need git pip, and Django.
+
+    <pre><code>
+    pip django==1.18
+    </code></pre>
+Then, come into the location of downloaded file, like:
+<pre>
+<code>
+cd git/Bio101
+</code>
+</pre>
+Runserver in Django.
+<pre>
+<code>
+Python manage.py runserver
+</code>
+</pre>
+
+You wiil see results like:
+<pre>
+<code>
+System check identified no issues (0 silenced).
+October 20, 2016 - 02:53:43
+Django version 1.8, using settings 'Bio101.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+</code>
+</pre>
+
+    Visit <a href="http://127.0.0.1:8000/transform">http://127.0.0.1:8000/transform</a>,and you can enjoy our software.
 <h1> Documentation</h1> 
 <p>Please visit our online document page: <a href="http://2016.igem.org/Team:UESTC-software/Document" target="_blank">Document in Wiki</a>
 <h1>About</h1>
